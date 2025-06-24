@@ -1,0 +1,153 @@
+/**
+ * Styles for the public-facing chat interface.
+ *
+ * @package FortifiedChat
+ */
+
+#fortified-chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    max-width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    z-index: 99999;
+    overflow: hidden; /* Ensures child elements adhere to border-radius */
+    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#fortified-chat-container.fortified-chat-closed #fortified-chat-body {
+    display: none;
+}
+
+#fortified-chat-header {
+    background-color: #0073aa; /* A common WordPress blue, adjust as needed */
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 9px; /* Match container's border-radius */
+    border-top-right-radius: 9px; /* Match container's border-radius */
+}
+
+#fortified-chat-header #fortified-chat-title {
+    font-weight: bold;
+}
+
+#fortified-chat-header #fortified-chat-toggle-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#fortified-chat-header #fortified-chat-toggle-button .dashicons {
+    font-size: 20px;
+    line-height: 1;
+}
+
+#fortified-chat-body {
+    height: 400px; /* Default height when open */
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+}
+
+#fortified-chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fortified-chat-message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.fortified-chat-message p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.fortified-chat-message.user {
+    background-color: #0073aa;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.fortified-chat-message.bot {
+    background-color: #e5e5e5;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+#fortified-chat-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+
+#fortified-chat-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+#fortified-chat-send-button {
+    background-color: #0073aa;
+    color: white;
+    border: none;
+    padding: 0 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#fortified-chat-send-button .dashicons {
+    font-size: 18px;
+    line-height: 1;
+}
+
+#fortified-chat-send-button:hover {
+    background-color: #005a87;
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+    #fortified-chat-container {
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    #fortified-chat-header {
+        border-radius: 0;
+    }
+
+    #fortified-chat-body {
+        height: calc(100vh - 100px); /* Adjust based on your needs */
+    }
+}
